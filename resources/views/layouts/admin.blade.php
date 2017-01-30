@@ -107,16 +107,10 @@
                             <ul class="acc-menu">
                                 <li class="nav-separator"><span>Navigation</span></li>
                                 <li><a  class="withripple" href="{{ url('admin') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
-                                <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">account_balance_wallet</i></span><span>Wedding Package</span></a></li>
-                                <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Extra Item</span></a></li>
-                                <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">monetization_on</i></span><span>Transaction</span></a></li>
-                                <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">photo_library</i></span><span>Gallery</span></a></li>
-                                <li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">supervisor_account</i></span><span>Users</span></a>
-                                    <ul class="acc-menu">
-                                        <li><a  class="withripple" href="#">Member</a></li>
-                                        <li><a  class="withripple" href="#">Admin</a></li>
-                                    </ul>
-                                </li><li>
+                                <li><a  class="withripple" href="{{ route('admin.hospital.manage') }}"><span class="icon"><i class="material-icons">account_balance_wallet</i></span><span>Hospital</span></a></li>
+                                <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Member</span></a></li>
+                                <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">monetization_on</i></span><span>Admin</span></a></li>
+                                <li>
                                     <a  class="withripple" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         <span class="icon"><i class="material-icons">reply</i></span>
                                         <span>Logout</span>
