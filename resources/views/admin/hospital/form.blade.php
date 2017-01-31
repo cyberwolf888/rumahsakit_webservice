@@ -43,23 +43,23 @@
                             </div>
                             <div class="panel-body" >
                                 <div class="form-group is-empty">
-                                    <label for="nama" class="control-label">Hospital Name</label>
-                                    {!! Form::text('nama', $user->name, ['id'=>'nama','placeholder'=>'Hospital Name','class'=>'form-control', 'required']) !!}
+                                    <label for="name" class="control-label">Hospital Name</label>
+                                    {!! Form::text('nama', $user->name, ['id'=>'name','placeholder'=>'Hospital Name','class'=>'form-control', 'required']) !!}
                                     <span class="material-input"></span>
                                 </div>
                                 <div class="form-group is-empty">
-                                    <label for="nama" class="control-label">Email</label>
-                                    {!! Form::email('email', $user->email, ['id'=>'nama','placeholder'=>'Email','class'=>'form-control', 'required']) !!}
+                                    <label for="name" class="control-label">Email</label>
+                                    {!! Form::email('email', $user->name, ['id'=>'name','placeholder'=>'Email','class'=>'form-control', 'required']) !!}
                                     <span class="material-input"></span>
                                 </div>
                                 <div class="form-group is-empty">
-                                    <label for="nama" class="control-label">Password</label>
-                                    {!! Form::password('password', ['id'=>'nama','placeholder'=>'Password','class'=>'form-control', 'required']) !!}
+                                    <label for="password" class="control-label">Password</label>
+                                    {!! Form::password('password', ['id'=>'password','placeholder'=>'Password','class'=>'form-control', 'required']) !!}
                                     <span class="material-input"></span>
                                 </div>
                                 <div class="form-group is-empty">
-                                    <label for="nama" class="control-label">Confirm Password</label>
-                                    {!! Form::password('password_confirmation', ['id'=>'nama','placeholder'=>'Confirm Password','class'=>'form-control', 'required']) !!}
+                                    <label for="password_confirmation" class="control-label">Confirm Password</label>
+                                    {!! Form::password('password_confirmation', ['id'=>'password_confirmation','placeholder'=>'Confirm Password','class'=>'form-control', 'required']) !!}
                                     <span class="material-input"></span>
                                 </div>
                                 @if(isset($update))

@@ -38,7 +38,7 @@ class HospitalController extends Controller
         $user = new User();
         $user->name = $request->nama;
         $user->email = $request->email;
-        $user->password = bcrypt($request['password']);
+        $user->password = bcrypt($request->password);
         $user->type = 2;
         $user->save();
         $user->attachRole(2);
@@ -70,11 +70,35 @@ class HospitalController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|min:6|confirmed'
+        ]);
+
+        $hospital = Hospital::findOrFail($id);
+        $user = User::findOrFail($hospital->user_id);
+
+        $user->name = $request->nama;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        $hospital->name = $user->name;
+        $hospital->status = $request->status;
+        $hospital->save();
+
+        return redirect()->route('admin.hospital.manage');
     }
 
     public function destroy($id)
     {
-        //
+        $hospital = Hospital::findOrFail($id);
+        $user = User::findOrFail($hospital->user_id);
+
+        $hospital->delete();
+        $user->delete();
+
+        return redirect()->route('admin.hospital.manage');
     }
 }

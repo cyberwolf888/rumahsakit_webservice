@@ -36,24 +36,24 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin'], 'as'=>'admin'
 
     //member
     Route::group(['prefix' => 'member', 'as'=>'.member'], function() {
-        Route::get('/', 'Master\PaketController@index')->name('.manage');
-        Route::get('/create', 'Master\PaketController@create')->name('.create');
-        Route::post('/create', 'Master\PaketController@store')->name('.store');
-        Route::get('/update/{id}', 'Master\PaketController@edit')->name('.edit');
-        Route::post('/update/{id}', 'Master\PaketController@update')->name('.update');
-        Route::get('/detail/{id}', 'Master\PaketController@show')->name('.detail');
-        Route::get('/delete/{id}', 'Master\PaketController@destroy')->name('.delete');
+        Route::get('/', 'Admin\MemberController@index')->name('.manage');
+        Route::get('/create', 'Admin\MemberController@create')->name('.create');
+        Route::post('/create', 'Admin\MemberController@store')->name('.store');
+        Route::get('/update/{id}', 'Admin\MemberController@edit')->name('.edit');
+        Route::post('/update/{id}', 'Admin\MemberController@update')->name('.update');
+        //Route::get('/detail/{id}', 'Admin\MemberController@show')->name('.detail');
+        //Route::get('/delete/{id}', 'Admin\MemberController@destroy')->name('.delete');
     });
 
     //admin
     Route::group(['prefix' => 'user', 'as'=>'.u_admin'], function() {
-        Route::get('/', 'Master\PaketController@index')->name('.manage');
-        Route::get('/create', 'Master\PaketController@create')->name('.create');
-        Route::post('/create', 'Master\PaketController@store')->name('.store');
-        Route::get('/update/{id}', 'Master\PaketController@edit')->name('.edit');
-        Route::post('/update/{id}', 'Master\PaketController@update')->name('.update');
-        Route::get('/detail/{id}', 'Master\PaketController@show')->name('.detail');
-        Route::get('/delete/{id}', 'Master\PaketController@destroy')->name('.delete');
+        Route::get('/admin', 'Admin\AdminController@index')->name('.manage');
+        Route::get('/admin/create', 'Admin\AdminController@create')->name('.create');
+        Route::post('/admin/create', 'Admin\AdminController@store')->name('.store');
+        Route::get('/admin/update/{id}', 'Admin\AdminController@edit')->name('.edit');
+        Route::post('/admin/update/{id}', 'Admin\AdminController@update')->name('.update');
+        //Route::get('/detail/{id}', 'Admin\AdminController@show')->name('.detail');
+        Route::get('/admin/delete/{id}', 'Admin\AdminController@destroy')->name('.delete');
     });
 });
 

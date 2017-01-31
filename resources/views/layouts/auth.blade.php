@@ -4,7 +4,7 @@
 <!-- Mirrored from paper.kaijuthemes.com/extras-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Jan 2017 06:45:38 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Login Form</title>
+    <title>Login</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">

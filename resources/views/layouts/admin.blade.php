@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bali Klasik - Admin</title>
+    <title>Rumah Sakit - Admin</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -108,8 +108,8 @@
                                 <li class="nav-separator"><span>Navigation</span></li>
                                 <li><a  class="withripple" href="{{ url('admin') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
                                 <li><a  class="withripple" href="{{ route('admin.hospital.manage') }}"><span class="icon"><i class="material-icons">account_balance_wallet</i></span><span>Hospital</span></a></li>
-                                <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Member</span></a></li>
-                                <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">monetization_on</i></span><span>Admin</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.member.manage') }}"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Member</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.u_admin.manage') }}"><span class="icon"><i class="material-icons">monetization_on</i></span><span>Admin</span></a></li>
                                 <li>
                                     <a  class="withripple" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         <span class="icon"><i class="material-icons">reply</i></span>

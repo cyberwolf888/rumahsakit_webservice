@@ -10,7 +10,7 @@
         <ol class="breadcrumb">
 
             <li class=""><a href="{{ route('admin.dashboard') }}">Home</a></li>
-            <li class="active"><a href="{{ route('admin.hospital.manage') }}">Transaction</a></li>
+            <li class="active"><a href="{{ route('admin.hospital.manage') }}">Hospital</a></li>
 
         </ol>
         <div class="page-heading">
