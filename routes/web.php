@@ -4,11 +4,6 @@
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 
@@ -18,8 +13,27 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+Route::get('/home', function () {
+    $user = Auth::user();
+    if($user->hasRole('admin')) {
+        return redirect()->intended('/admin');
+    }elseif ($user->hasRole('hospital')){
 
-//Admin
+        $hospital = $user->hospital;
+        if($hospital->status == \App\Models\Hospital::STATUS_NOT_COMPLETE){
+            return redirect()->route('hospital.finish.index');
+        }
+
+        return redirect()->intended('/hospital');
+    }
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin Web Routes
+|--------------------------------------------------------------------------
+*/
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin'], 'as'=>'admin'], function() {
     Route::get('/', 'Admin\DashboardController@index')->name('.dashboard');
 
@@ -57,7 +71,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin'], 'as'=>'admin'
     });
 });
 
-//Rumah Sakit
+
+/*
+|--------------------------------------------------------------------------
+| Hospital Web Routes
+|--------------------------------------------------------------------------
+*/
 Route::group(['prefix' => 'hospital', 'middleware' => ['role:hospital'], 'as'=>'hospital'], function() {
-    Route::get('/', 'Master\DashboardController@index')->name('.dashboard');
+    Route::get('/', 'Hospital\DashboardController@index')->name('.dashboard');
+
+    //complte account
+    Route::group(['prefix' => 'finish', 'as'=>'.finish'], function() {
+        Route::get('/', 'Hospital\DashboardController@finish')->name('.index');
+        Route::post('/store', 'Hospital\DashboardController@store')->name('.store');
+    });
+
 });

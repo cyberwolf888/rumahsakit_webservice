@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.hospital')
 
 @push('plugin_css')
 <link href="{{ url('assets') }}/plugins/jvectormap/jquery-jvectormap-2.0.2.css" type="text/css" rel="stylesheet">
@@ -11,8 +11,8 @@
     <div class="page-content">
         <ol class="breadcrumb">
 
-            <li class=""><a href="{{ url('admin') }}">Home</a></li>
-            <li class="active"><a href="{{ url('admin') }}">Dashboard</a></li>
+            <li class=""><a href="{{ url('hospital') }}">Home</a></li>
+            <li class="active"><a href="{{ url('hospital') }}">Dashboard</a></li>
 
         </ol>
         <div class="page-heading">

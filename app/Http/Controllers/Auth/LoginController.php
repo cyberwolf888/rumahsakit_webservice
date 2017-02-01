@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hospital;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -25,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -42,6 +43,12 @@ class LoginController extends Controller
         if($user->hasRole('admin')) {
             return redirect()->intended('/admin');
         }elseif ($user->hasRole('hospital')){
+
+            $hospital = $user->hospital;
+            if($hospital->status == Hospital::STATUS_NOT_COMPLETE){
+                return redirect()->route('hospital.finish.index');
+            }
+
             return redirect()->intended('/hospital');
         }
 

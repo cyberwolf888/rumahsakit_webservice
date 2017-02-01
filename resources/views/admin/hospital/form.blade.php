@@ -38,7 +38,7 @@
                     <div class="col-md-6">
                         <div class="panel panel-default" data-widget='{"draggable": "false"}'>
                             <div class="panel-heading">
-                                <h2>Data Member</h2>
+                                <h2>Data Hospital</h2>
                                 <div class="panel-ctrls" data-actions-container="" data-action-collapse='{"target": ".panel-body, .panel-footer"}'></div>
                             </div>
                             <div class="panel-body" >

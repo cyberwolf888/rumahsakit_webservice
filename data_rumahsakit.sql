@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 31 Jan 2017 pada 07.52
+-- Generation Time: 01 Feb 2017 pada 09.03
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -188,7 +188,7 @@ CREATE TABLE `rumahsakit` (
 --
 
 INSERT INTO `rumahsakit` (`id`, `user_id`, `name`, `telp`, `address`, `image`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 3, 'Graha Bedebah', NULL, NULL, NULL, NULL, 2, '2017-01-30 03:28:12', '2017-01-30 03:28:12'),
+(1, 3, 'Graha Bedebah', '08467373827', 'Jalan Raya Bedebah No.69', 'df235d73b5da69f1340d23467c59b37a.jpg', 'Rumah sakit yang paling awesome yang ada di muka bumi ini.', 1, '2017-01-30 03:28:12', '2017-01-31 23:59:51'),
 (2, 4, 'Graha Usada Bedebah', '34234', 'Jalan Hasanudin', NULL, 'asdasdasd', 0, '2017-01-30 03:33:46', '2017-01-30 21:31:20');
 
 -- --------------------------------------------------------
@@ -213,7 +213,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `type`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@mail.com', '$2y$10$NrWi/y3MUOnPcbU4uESLfOHbNKmYbVTtv.P2gBK18H0PZnFbm6Q9K', 'ohaJ5PwzcrLvBkzptJXWAsHtzuSQldVrtNoRX1hqw1GDiBOJhwJNYFSamakT', 1, '2017-01-28 21:02:19', '2017-01-28 21:02:19'),
+(1, 'admin', 'admin@mail.com', '$2y$10$NrWi/y3MUOnPcbU4uESLfOHbNKmYbVTtv.P2gBK18H0PZnFbm6Q9K', 'yWAqYIg2k6TO4tzsvGchQYHIBiiL4qCauGrT5BZMc2QqyDIQyJePray4TZfg', 1, '2017-01-28 21:02:19', '2017-01-28 21:02:19'),
 (3, 'Graha Bedebah', 'hospital@mail.com', '$2y$10$hEDSj.yzxpQPdk1sNkhMluHsvC/dUy7K7Blz1o1APnYYicS8X70eS', NULL, 2, '2017-01-30 03:28:12', '2017-01-30 03:28:12'),
 (4, 'Graha Usada Bedebah', 'usada@mail.com', '$2y$10$39IFKvCyZE2azzb8glZ/q.bp1G4mY28TnlZXx50RAM.ORypjpYZSq', NULL, 2, '2017-01-30 03:33:46', '2017-01-30 21:31:20'),
 (5, 'Member Bedebah', 'member@mail.com', '$2y$10$/osxj1KxFX0NmtFBv63yneX3WM5LDYQoDC1npN/jJbGKKf.y3Ed3y', NULL, 3, '2017-01-30 21:57:40', '2017-01-30 22:02:39');
@@ -318,7 +318,7 @@ ALTER TABLE `rumahsakit`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
