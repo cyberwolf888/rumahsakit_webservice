@@ -86,4 +86,48 @@ Route::group(['prefix' => 'hospital', 'middleware' => ['role:hospital'], 'as'=>'
         Route::post('/store', 'Hospital\DashboardController@store')->name('.store');
     });
 
+    //room
+    Route::group(['prefix' => 'room', 'as'=>'.room'], function() {
+        Route::get('/', 'Hospital\RoomController@index')->name('.manage');
+        Route::get('/create', 'Hospital\RoomController@create')->name('.create');
+        Route::post('/create', 'Hospital\RoomController@store')->name('.store');
+        Route::get('/update/{id}', 'Hospital\RoomController@edit')->name('.edit');
+        Route::post('/update/{id}', 'Hospital\RoomController@update')->name('.update');
+        Route::get('/detail/{id}', 'Hospital\RoomController@show')->name('.detail');
+        Route::get('/delete/{id}', 'Hospital\RoomController@destroy')->name('.delete');
+    });
+
+    //reservation
+    Route::group(['prefix' => 'reservation', 'as'=>'.reservation'], function() {
+        Route::get('/', 'Hospital\ReservationController@index')->name('.manage');
+        Route::get('/create', 'Hospital\ReservationController@create')->name('.create');
+        Route::post('/create', 'Hospital\ReservationController@store')->name('.store');
+        Route::get('/update/{id}', 'Hospital\ReservationController@edit')->name('.edit');
+        Route::post('/update/{id}', 'Hospital\ReservationController@update')->name('.update');
+        Route::get('/detail/{id}', 'Hospital\ReservationController@show')->name('.detail');
+        Route::get('/delete/{id}', 'Hospital\ReservationController@destroy')->name('.delete');
+    });
+
+    //report
+    Route::group(['prefix' => 'report', 'as'=>'.report'], function() {
+        Route::get('/', 'Hospital\ReportController@index')->name('.manage');
+        Route::get('/create', 'Hospital\ReportController@create')->name('.create');
+        Route::post('/create', 'Hospital\ReportController@store')->name('.store');
+        Route::get('/update/{id}', 'Hospital\ReportController@edit')->name('.edit');
+        Route::post('/update/{id}', 'Hospital\ReportController@update')->name('.update');
+        Route::get('/detail/{id}', 'Hospital\ReportController@show')->name('.detail');
+        Route::get('/delete/{id}', 'Hospital\ReportController@destroy')->name('.delete');
+    });
+
+    //profile
+    Route::group(['prefix' => 'profile', 'as'=>'.profile'], function() {
+        Route::get('/', 'Hospital\ProfileController@index')->name('.index');
+        Route::get('/create', 'Hospital\ProfileController@create')->name('.create');
+        Route::post('/create', 'Hospital\ProfileController@store')->name('.store');
+        Route::get('/update/{id}', 'Hospital\ProfileController@edit')->name('.edit');
+        Route::post('/update/{id}', 'Hospital\ProfileController@update')->name('.update');
+        Route::get('/detail/{id}', 'Hospital\ProfileController@show')->name('.detail');
+        Route::get('/delete/{id}', 'Hospital\ProfileController@destroy')->name('.delete');
+    });
+
 });

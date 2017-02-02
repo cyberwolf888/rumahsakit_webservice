@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Feb 2017 pada 09.03
+-- Generation Time: 02 Feb 2017 pada 09.05
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -164,6 +164,14 @@ CREATE TABLE `room` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `room`
+--
+
+INSERT INTO `room` (`id`, `rumahsakit_id`, `name`, `image`, `description`, `total_room`, `akomodasi`, `perawatan`, `visit_dokter`, `administrasi`, `total`, `created_at`, `updated_at`) VALUES
+(1, 1, 'SVVIP', 'fd0cf5fb49208aacac06090d98508f98.jpg', 'Room dengan keamanan tingkat tinggi', 12, 1365000, 300000, 250000, 80000, 1995000, '2017-02-01 23:38:12', '2017-02-01 23:38:12'),
+(2, 1, 'VVIP', '1fea7e02204dfb2914b76ea41289374e.jpg', 'Ruangan paling mantap', 15, 1035000, 250000, 200000, 80000, 1565000, '2017-02-01 23:43:05', '2017-02-01 23:53:53');
+
 -- --------------------------------------------------------
 
 --
@@ -308,7 +316,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `rumahsakit`
 --

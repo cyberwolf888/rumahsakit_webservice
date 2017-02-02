@@ -111,10 +111,11 @@
                             @if(Auth::user()->hospital->status != \App\Models\Hospital::STATUS_NOT_COMPLETE)
                             <ul class="acc-menu">
                                 <li class="nav-separator"><span>Navigation</span></li>
-                                <li><a  class="withripple" href="{{ url('admin') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
-                                <li><a  class="withripple" href="{{ route('admin.hospital.manage') }}"><span class="icon"><i class="material-icons">account_balance_wallet</i></span><span>Hospital</span></a></li>
-                                <li><a  class="withripple" href="{{ route('admin.member.manage') }}"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Member</span></a></li>
-                                <li><a  class="withripple" href="{{ route('admin.u_admin.manage') }}"><span class="icon"><i class="material-icons">monetization_on</i></span><span>Admin</span></a></li>
+                                <li><a  class="withripple" href="{{ url('hospital') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
+                                <li><a  class="withripple" href="{{ route('hospital.room.manage') }}"><span class="icon"><i class="material-icons">account_balance_wallet</i></span><span>Room</span></a></li>
+                                <li><a  class="withripple" href="{{ route('hospital.reservation.manage') }}"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Reservation</span></a></li>
+                                <li><a  class="withripple" href="{{ route('hospital.report.manage') }}"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Report</span></a></li>
+                                <li><a  class="withripple" href="{{ route('hospital.profile.index') }}"><span class="icon"><i class="material-icons">monetization_on</i></span><span>Profile</span></a></li>
                                 <li>
                                     <a  class="withripple" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         <span class="icon"><i class="material-icons">reply</i></span>
