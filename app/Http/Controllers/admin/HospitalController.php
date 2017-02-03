@@ -36,7 +36,7 @@ class HospitalController extends Controller
         ]);
 
         $user = new User();
-        $user->name = $request->nama;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->type = 2;
@@ -79,7 +79,7 @@ class HospitalController extends Controller
         $hospital = Hospital::findOrFail($id);
         $user = User::findOrFail($hospital->user_id);
 
-        $user->name = $request->nama;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();

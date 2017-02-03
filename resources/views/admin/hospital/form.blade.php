@@ -44,12 +44,12 @@
                             <div class="panel-body" >
                                 <div class="form-group is-empty">
                                     <label for="name" class="control-label">Hospital Name</label>
-                                    {!! Form::text('nama', $user->name, ['id'=>'name','placeholder'=>'Hospital Name','class'=>'form-control', 'required']) !!}
+                                    {!! Form::text('name', $user->name, ['id'=>'name','placeholder'=>'Hospital Name','class'=>'form-control', 'required']) !!}
                                     <span class="material-input"></span>
                                 </div>
                                 <div class="form-group is-empty">
-                                    <label for="name" class="control-label">Email</label>
-                                    {!! Form::email('email', $user->name, ['id'=>'name','placeholder'=>'Email','class'=>'form-control', 'required']) !!}
+                                    <label for="email" class="control-label">Email</label>
+                                    {!! Form::email('email', $user->email, ['id'=>'email','placeholder'=>'Email','class'=>'form-control', 'required']) !!}
                                     <span class="material-input"></span>
                                 </div>
                                 <div class="form-group is-empty">

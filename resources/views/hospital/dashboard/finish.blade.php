@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="form-group is-empty">
                                     <label for="name" class="control-label">Description</label>
-                                    {!! Form::textarea('description', null, ['id'=>'description','placeholder'=>'Description','class'=>'form-control', 'required']) !!}
+                                    {!! Form::textarea('description', null, ['id'=>'description','placeholder'=>'Description','class'=>'form-control', 'rows'=>3,'required']) !!}
                                     <span class="material-input"></span>
                                 </div>
                             </div>

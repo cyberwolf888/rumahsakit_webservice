@@ -122,12 +122,8 @@ Route::group(['prefix' => 'hospital', 'middleware' => ['role:hospital'], 'as'=>'
     //profile
     Route::group(['prefix' => 'profile', 'as'=>'.profile'], function() {
         Route::get('/', 'Hospital\ProfileController@index')->name('.index');
-        Route::get('/create', 'Hospital\ProfileController@create')->name('.create');
-        Route::post('/create', 'Hospital\ProfileController@store')->name('.store');
-        Route::get('/update/{id}', 'Hospital\ProfileController@edit')->name('.edit');
-        Route::post('/update/{id}', 'Hospital\ProfileController@update')->name('.update');
-        Route::get('/detail/{id}', 'Hospital\ProfileController@show')->name('.detail');
-        Route::get('/delete/{id}', 'Hospital\ProfileController@destroy')->name('.delete');
+        Route::post('/profile', 'Hospital\ProfileController@profile')->name('.profile');
+        Route::post('/user', 'Hospital\ProfileController@user')->name('.user');
     });
 
 });
