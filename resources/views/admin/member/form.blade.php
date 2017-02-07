@@ -53,8 +53,8 @@
                                     <span class="material-input"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="gender" class="control-label">Member Gender</label>
-                                    {!! Form::select('gender', ['L' => 'Men', 'P' => 'Women'], $model->gender, ['class'=>'form-control','required']) !!}
+                                    <label for="no_id" class="control-label">ID Number (KTP/SIM/Paspor)</label>
+                                    {!! Form::text('no_id', $model->no_id, ['id'=>'no_id','placeholder'=>'Phone Number','class'=>'form-control', 'required']) !!}
                                     <span class="material-input"></span>
                                 </div>
                                 <div class="form-group is-empty">

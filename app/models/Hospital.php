@@ -21,4 +21,11 @@ class Hospital extends Model
         $status = [0=>'Suspend', 1=>'Active', 2=>'Not Complete'];
         return $status[$this->status];
     }
+
+    public function getPrice()
+    {
+        $room = Room::where('rumahsakit_id',$this->id)->orderBy('total','asc')->first();
+
+        return $room->total;
+    }
 }

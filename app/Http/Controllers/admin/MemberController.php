@@ -52,7 +52,7 @@ class MemberController extends Controller
         $model->name = $request->name;
         $model->telp = $request->telp;
         $model->address = $request->address;
-        $model->gender = $request->gender;
+        $model->no_id = $request->no_id;
         $model->status = Member::STATUS_ACTIVE;
         $model->save();
 
@@ -91,7 +91,7 @@ class MemberController extends Controller
         $model->name = $request->name;
         $model->telp = $request->telp;
         $model->address = $request->address;
-        $model->gender = $request->gender;
+        $model->no_id = $request->no_id;
         $model->status = $request->status;
         $model->save();
 

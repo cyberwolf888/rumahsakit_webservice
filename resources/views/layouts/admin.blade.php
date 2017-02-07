@@ -42,10 +42,10 @@
 
     <div class="logo-area">
         <a class="navbar-brand navbar-brand-info " href="{{ url('admin') }}">
-            <img class="show-on-collapse img-logo-white" alt="Paper" src="{{ url('assets') }}/img/logo-icon-white.png">
-            <img class="show-on-collapse img-logo-dark" alt="Paper" src="{{ url('assets') }}/img/logo-icon-dark.png">
-            <img class="img-white" alt="Paper" src="{{ url('assets') }}/images/logo.png">
-            <img class="img-dark" alt="Paper" src="{{ url('assets') }}/images/logo.png">
+            <img class="show-on-collapse img-logo-white" alt="Paper" src="{{ url('assets') }}/img/small-logo.png">
+            <img class="show-on-collapse img-logo-dark" alt="Paper" src="{{ url('assets') }}/img/small-logo.png">
+            <img class="img-white" alt="Paper" src="{{ url('assets') }}/img/small-logo.png">
+            <img class="img-dark" alt="Paper" src="{{ url('assets') }}/img/small-logo.png">
         </a>
 
         <span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg stay-on-search">

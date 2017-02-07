@@ -20,10 +20,4 @@ class Member extends Model
         $status = [0=>'Suspend', 1=>'Active'];
         return $status[$this->status];
     }
-
-    public function getGender()
-    {
-        $gender = ['L'=>'Men', 'P'=>'Women'];
-        return $gender[$this->gender];
-    }
 }

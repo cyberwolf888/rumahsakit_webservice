@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 02 Feb 2017 pada 09.05
+-- Generation Time: 07 Feb 2017 pada 09.34
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -30,9 +30,9 @@ CREATE TABLE `member` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
+  `no_id` varchar(50) DEFAULT NULL,
   `telp` varchar(12) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `gender` enum('L','P') DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -42,8 +42,8 @@ CREATE TABLE `member` (
 -- Dumping data untuk tabel `member`
 --
 
-INSERT INTO `member` (`id`, `user_id`, `name`, `telp`, `address`, `gender`, `status`, `created_at`, `updated_at`) VALUES
-(1, 5, 'Member Bedebah', '086474837', 'Jalan Bedebah', 'L', 1, '2017-01-30 21:57:40', '2017-01-30 22:02:39');
+INSERT INTO `member` (`id`, `user_id`, `name`, `no_id`, `telp`, `address`, `status`, `created_at`, `updated_at`) VALUES
+(1, 5, 'Member Bedebah', '32760613126600069', '086474837', 'Jalan Bedebah', 1, '2017-01-30 21:57:40', '2017-02-07 00:26:54');
 
 -- --------------------------------------------------------
 
@@ -196,7 +196,7 @@ CREATE TABLE `rumahsakit` (
 --
 
 INSERT INTO `rumahsakit` (`id`, `user_id`, `name`, `telp`, `address`, `image`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 3, 'Graha Bedebah', '08467373827', 'Jalan Raya Bedebah No.69', 'df235d73b5da69f1340d23467c59b37a.jpg', 'Rumah sakit yang paling awesome yang ada di muka bumi ini.', 1, '2017-01-30 03:28:12', '2017-01-31 23:59:51'),
+(1, 3, 'Graha Bedebah', '08467373827', 'Jalan Raya Bedebah No.69', 'a4ab4fe41b380372a6277a6022cfc339.jpg', 'Rumah sakit yang paling awesome yang ada di muka bumi ini.', 1, '2017-01-30 03:28:12', '2017-02-02 23:39:55'),
 (2, 4, 'Graha Usada Bedebah', '34234', 'Jalan Hasanudin', NULL, 'asdasdasd', 0, '2017-01-30 03:33:46', '2017-01-30 21:31:20');
 
 -- --------------------------------------------------------
@@ -221,10 +221,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `type`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@mail.com', '$2y$10$NrWi/y3MUOnPcbU4uESLfOHbNKmYbVTtv.P2gBK18H0PZnFbm6Q9K', 'yWAqYIg2k6TO4tzsvGchQYHIBiiL4qCauGrT5BZMc2QqyDIQyJePray4TZfg', 1, '2017-01-28 21:02:19', '2017-01-28 21:02:19'),
-(3, 'Graha Bedebah', 'hospital@mail.com', '$2y$10$hEDSj.yzxpQPdk1sNkhMluHsvC/dUy7K7Blz1o1APnYYicS8X70eS', NULL, 2, '2017-01-30 03:28:12', '2017-01-30 03:28:12'),
+(1, 'admin', 'admin@mail.com', '$2y$10$NrWi/y3MUOnPcbU4uESLfOHbNKmYbVTtv.P2gBK18H0PZnFbm6Q9K', 'euqV8KfhhZHbVBaZa9Cw77No9UCC1H8bzThHvh8buNV8TrwTjkZAR5XUUjgY', 1, '2017-01-28 21:02:19', '2017-01-28 21:02:19'),
+(3, 'Graha Bedebah', 'hospital@mail.com', '$2y$10$ohoXiH3hmJR7qnm3bqcm3.aIaCRCjgkQpxq6GqSRcsEgudKhRtFF.', 'c9MUWPCP9ocKJWHJPI3JoK1cmFjuBjF1SCPByDN2I44VSsgBJ9achbEcpgp3', 2, '2017-01-30 03:28:12', '2017-02-02 23:43:24'),
 (4, 'Graha Usada Bedebah', 'usada@mail.com', '$2y$10$39IFKvCyZE2azzb8glZ/q.bp1G4mY28TnlZXx50RAM.ORypjpYZSq', NULL, 2, '2017-01-30 03:33:46', '2017-01-30 21:31:20'),
-(5, 'Member Bedebah', 'member@mail.com', '$2y$10$/osxj1KxFX0NmtFBv63yneX3WM5LDYQoDC1npN/jJbGKKf.y3Ed3y', NULL, 3, '2017-01-30 21:57:40', '2017-01-30 22:02:39');
+(5, 'Member Bedebah', 'member@mail.com', '$2y$10$tWIZhH/0DtWtbVaYXy.jjeu3gVC7oMFZzjxjJkysw6Vx7FQxJl5gy', NULL, 3, '2017-01-30 21:57:40', '2017-02-07 00:26:54');
 
 --
 -- Indexes for dumped tables

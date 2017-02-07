@@ -36,7 +36,7 @@
                                         <th>Email</th>
                                         <th>Telp</th>
                                         <th>Address</th>
-                                        <th>Gender</th>
+                                        <th>ID Number</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -48,7 +48,7 @@
                                             <td>{{ $row->user->email }}</td>
                                             <td>{{ $row->telp }}</td>
                                             <td>{{ $row->address }}</td>
-                                            <td>{{ $row->getGender() }}</td>
+                                            <td>{{ $row->no_id }}</td>
                                             <td> {{ $row->getStatus() }}</td>
                                             <td class="center" width="130">
                                                 <a href="{{ route('admin.member.edit',$row->id) }}" class="btn btn-warning btn-raised btn-xs"><i class="fa fa-pencil"></i><div class="ripple-container"></div></a>
