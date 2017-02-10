@@ -34,6 +34,7 @@ class MemberController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'no_id' => 'required|max:255|alpha_num|min:6',
             'telp' => 'required|max:255|alpha_num|min:6',
             'address' => 'required|max:255'
         ]);
@@ -76,6 +77,7 @@ class MemberController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
             'password' => 'required|min:6|confirmed',
+            'no_id' => 'required|max:255|alpha_num|min:6',
             'telp' => 'required|max:255|alpha_num|min:6',
             'address' => 'required|max:255'
         ]);
