@@ -139,4 +139,5 @@ Route::group(['prefix' => 'api','as'=>'api.'], function () {
     Route::post('/register', 'Api\AuthController@register');
     Route::post('/home', 'Api\HomeController@index');
     Route::post('/getRoom', 'Api\HospitalController@getRoom');
+    Route::post('/detailRoom', 'Api\HospitalController@detailRoom');
 });

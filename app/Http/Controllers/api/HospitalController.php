@@ -22,4 +22,16 @@ class HospitalController extends Controller
 
         return response()->json(['data'=>$return]);
     }
+
+    public function detailRoom(Request $request)
+    {
+        $room = Room::findOrFail($request->id_room);
+        $room->image = url('images/room/'.$room->image);
+        $room->label_price = 'Rp. '.number_format($room->total, 0, ',', '.');
+        $room->label_akomodasi = 'Rp. '.number_format($room->akomodasi, 0, ',', '.');
+        $room->label_perawatan = 'Rp. '.number_format($room->perawatan, 0, ',', '.');
+        $room->label_visit_dokter = 'Rp. '.number_format($room->visit_dokter, 0, ',', '.');
+        $room->label_administrasi = 'Rp. '.number_format($room->administrasi, 0, ',', '.');
+        return response()->json(['data'=>$room]);
+    }
 }
