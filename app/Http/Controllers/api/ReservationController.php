@@ -30,4 +30,27 @@ class ReservationController extends Controller
         return response()->json(['status'=>1]);
 
     }
+
+    public function getReservation(Request $request)
+    {
+        $member = Member::where('user_id',$request->user_id)->firstOrFail();
+        $reservation = Reservation::where('member_id',$member->id)->get();
+        if($reservation->count() > 0){
+            $data = [];
+            foreach ($reservation as $row){
+                $row->label_total = 'Rp. '.number_format($row->total, 0, ',', '.');
+                $row->label_status = $row->getStatus();
+                $row->checkout = date('d F Y', strtotime("+".$row->duration." days", strtotime($row->checkin)));
+                $row->checkin = date('d F Y', strtotime($row->checkin));
+                $row->created = date('d F Y', strtotime($row->created_at));
+                $row->rumahsakit = $row->hospital->name;
+                $row->kamar = $row->room->name;
+                $row->thumb = url('images/room/'.$row->room->image);
+                array_push($data, $row);
+            }
+            return response()->json(['status'=>1,'data'=>$data]);
+        }else{
+            return response()->json(['status'=>0]);
+        }
+    }
 }

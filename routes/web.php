@@ -141,4 +141,5 @@ Route::group(['prefix' => 'api','as'=>'api.'], function () {
     Route::post('/getRoom', 'Api\HospitalController@getRoom');
     Route::post('/detailRoom', 'Api\HospitalController@detailRoom');
     Route::post('/reservation', 'Api\ReservationController@booking');
+    Route::post('/getReservation', 'Api\ReservationController@getReservation');
 });

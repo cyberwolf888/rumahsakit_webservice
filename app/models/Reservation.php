@@ -11,4 +11,20 @@ class Reservation extends Model
     const STATUS_FINISH = 3;
     const STATUS_CANCELED = 0;
     protected $table = 'reservation';
+
+    public function getStatus()
+    {
+        $status = ['1'=>'Waiting Confirmation', '2'=>'Confirmed', '3'=>'Complete','0'=>'Cancelled'];
+        return $status[$this->status];
+    }
+
+    public function hospital()
+    {
+        return $this->belongsTo('App\Models\Hospital', 'rumahsakit_id');
+    }
+
+    public function room()
+    {
+        return $this->belongsTo('App\Models\Room', 'room_id');
+    }
 }
