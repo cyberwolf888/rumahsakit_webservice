@@ -53,15 +53,52 @@ class AuthController extends Controller
         return response()->json(['status'=>1]);
     }
 
-    public function test(Request $request){
+    public function getProfile(Request $request)
+    {
+        $user = User::find($request->user_id);
+
+        if(is_null($user)){
+            return response()->json(['status'=>0]);
+        }else{
+            $member = $user->member;
+            $data = [];
+            $data['name'] = $member->name;
+            $data['email'] = $user->email;
+            $data['no_id'] = $member->no_id;
+            $data['telp'] = $member->telp;
+            $data['address'] = $member->address;
+            return response()->json(['status'=>1,'data'=>$data]);
+        }
+    }
+
+    public function saveProfile(Request $request)
+    {
         $this->validate($request, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255',
             'password' => 'required|min:6|confirmed',
             'no_id' => 'required|max:255|alpha_num|min:6',
             'telp' => 'required|max:255|alpha_num|min:6',
             'address' => 'required|max:255'
         ]);
-        return response()->json(['status'=>1]);
+
+        $user = User::find($request->user_id);
+        if(is_null($user)){
+            return response()->json(['status'=>0,'error'=>'Failed to save your profile']);
+        }else{
+            $model = $user->member;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->save();
+
+            $model->name = $request->name;
+            $model->telp = $request->telp;
+            $model->address = $request->address;
+            $model->no_id = $request->no_id;
+            $model->save();
+
+            return response()->json(['status'=>1]);
+        }
     }
 }

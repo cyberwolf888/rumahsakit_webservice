@@ -32,4 +32,8 @@ class User extends Authenticatable
     public function hospital(){
         return $this->hasOne('App\Models\Hospital', 'user_id');
     }
+
+    public function member(){
+        return $this->hasOne('App\Models\Member', 'user_id');
+    }
 }
