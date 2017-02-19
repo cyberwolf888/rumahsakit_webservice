@@ -2,84 +2,53 @@
 
 namespace App\Http\Controllers\Hospital;
 
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $model = Reservation::where('rumahsakit_id',Auth::user()->hospital->id)->orderBy('created_at','desc')->get();
+        return view('hospital/reservation/manage',[
+            'model'=>$model
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $model = Reservation::findOrFail($id);
+        return view('hospital/reservation/detail',[
+            'model'=>$model
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function cancel($id)
     {
-        //
+        $model = Reservation::findOrFail($id);
+        $model->status = Reservation::STATUS_CANCELED;
+        $model->save();
+
+        return redirect()->back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function confirmed($id)
     {
-        //
+        $model = Reservation::findOrFail($id);
+        $model->status = Reservation::STATUS_CONFIRMED;
+        $model->save();
+
+        return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function completed($id)
     {
-        //
+        $model = Reservation::findOrFail($id);
+        $model->status = Reservation::STATUS_FINISH;
+        $model->save();
+
+        return redirect()->back();
     }
 }

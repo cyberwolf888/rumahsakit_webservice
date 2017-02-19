@@ -100,12 +100,10 @@ Route::group(['prefix' => 'hospital', 'middleware' => ['role:hospital'], 'as'=>'
     //reservation
     Route::group(['prefix' => 'reservation', 'as'=>'.reservation'], function() {
         Route::get('/', 'Hospital\ReservationController@index')->name('.manage');
-        Route::get('/create', 'Hospital\ReservationController@create')->name('.create');
-        Route::post('/create', 'Hospital\ReservationController@store')->name('.store');
-        Route::get('/update/{id}', 'Hospital\ReservationController@edit')->name('.edit');
-        Route::post('/update/{id}', 'Hospital\ReservationController@update')->name('.update');
         Route::get('/detail/{id}', 'Hospital\ReservationController@show')->name('.detail');
-        Route::get('/delete/{id}', 'Hospital\ReservationController@destroy')->name('.delete');
+        Route::get('/cancel/{id}', 'Hospital\ReservationController@cancel')->name('.cancel');
+        Route::get('/confirmed/{id}', 'Hospital\ReservationController@confirmed')->name('.confirmed');
+        Route::get('/completed/{id}', 'Hospital\ReservationController@completed')->name('.completed');
     });
 
     //report

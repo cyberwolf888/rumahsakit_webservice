@@ -34,7 +34,7 @@ class ReservationController extends Controller
     public function getReservation(Request $request)
     {
         $member = Member::where('user_id',$request->user_id)->firstOrFail();
-        $reservation = Reservation::where('member_id',$member->id)->get();
+        $reservation = Reservation::where('member_id',$member->id)->orderBy('created_at','desc')->get();
         if($reservation->count() > 0){
             $data = [];
             foreach ($reservation as $row){

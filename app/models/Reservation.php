@@ -14,7 +14,7 @@ class Reservation extends Model
 
     public function getStatus()
     {
-        $status = ['1'=>'Waiting Confirmation', '2'=>'Confirmed', '3'=>'Complete','0'=>'Cancelled'];
+        $status = ['1'=>'Waiting Confirmation', '2'=>'Confirmed', '3'=>'Completed','0'=>'Cancelled'];
         return $status[$this->status];
     }
 
@@ -26,5 +26,10 @@ class Reservation extends Model
     public function room()
     {
         return $this->belongsTo('App\Models\Room', 'room_id');
+    }
+
+    public function member()
+    {
+        return $this->belongsTo('App\Models\Member', 'member_id');
     }
 }

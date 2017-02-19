@@ -42,10 +42,10 @@
 
     <div class="logo-area">
         <a class="navbar-brand navbar-brand-info " href="{{ url('admin') }}">
-            <img class="show-on-collapse img-logo-white" alt="Paper" src="{{ url('assets') }}/img/logo-icon-white.png">
-            <img class="show-on-collapse img-logo-dark" alt="Paper" src="{{ url('assets') }}/img/logo-icon-dark.png">
-            <img class="img-white" alt="Paper" src="{{ url('assets') }}/images/logo.png">
-            <img class="img-dark" alt="Paper" src="{{ url('assets') }}/images/logo.png">
+            <img class="show-on-collapse img-logo-white" alt="Paper" src="{{ url('assets') }}/img/small-logo.png">
+            <img class="show-on-collapse img-logo-dark" alt="Paper" src="{{ url('assets') }}/img/small-logo.png">
+            <img class="img-white" alt="Paper" src="{{ url('assets') }}/img/small-logo.png">
+            <img class="img-dark" alt="Paper" src="{{ url('assets') }}/img/small-logo.png">
         </a>
 
         <span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg stay-on-search">
@@ -113,9 +113,9 @@
                                 <li class="nav-separator"><span>Navigation</span></li>
                                 <li><a  class="withripple" href="{{ url('hospital') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
                                 <li><a  class="withripple" href="{{ route('hospital.room.manage') }}"><span class="icon"><i class="material-icons">account_balance_wallet</i></span><span>Room</span></a></li>
-                                <li><a  class="withripple" href="{{ route('hospital.reservation.manage') }}"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Reservation</span></a></li>
-                                <li><a  class="withripple" href="{{ route('hospital.report.manage') }}"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Report</span></a></li>
-                                <li><a  class="withripple" href="{{ route('hospital.profile.index') }}"><span class="icon"><i class="material-icons">monetization_on</i></span><span>Profile</span></a></li>
+                                <li><a  class="withripple" href="{{ route('hospital.reservation.manage') }}"><span class="icon"><i class="material-icons">chrome_reader_mode</i></span><span>Reservation</span></a></li>
+                                <li><a  class="withripple" href="{{ route('hospital.report.manage') }}"><span class="icon"><i class="material-icons">assignment_turned_in</i></span><span>Report</span></a></li>
+                                <li><a  class="withripple" href="{{ route('hospital.profile.index') }}"><span class="icon"><i class="material-icons">account_circle</i></span><span>Profile</span></a></li>
                                 <li>
                                     <a  class="withripple" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         <span class="icon"><i class="material-icons">reply</i></span>
