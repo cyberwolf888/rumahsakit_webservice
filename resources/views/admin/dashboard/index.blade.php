@@ -43,7 +43,7 @@
                         <div class="info-tile info-tile-alt tile-indigo">
                             <div class="info">
                                 <div class="tile-heading"><span>Total Member</span></div>
-                                <div class="tile-body"><span>9</span></div>
+                                <div class="tile-body"><span>{{ $total_member }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-indigo"></div></div>
@@ -53,8 +53,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-danger">
                             <div class="info">
-                                <div class="tile-heading"><span>Total Package</span></div>
-                                <div class="tile-body "><span>99</span></div>
+                                <div class="tile-heading"><span>Total Hospital</span></div>
+                                <div class="tile-body "><span>{{ $total_hospital }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-gray"></div></div>
@@ -64,22 +64,11 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-primary">
                             <div class="info">
-                                <div class="tile-heading"><span>Total Transaction</span></div>
-                                <div class="tile-body "><span>99</span></div>
+                                <div class="tile-heading"><span>Total Admin</span></div>
+                                <div class="tile-body "><span>{{ $total_admin }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-primary"></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="info-tile info-tile-alt tile-success clearfix">
-                            <div class="info">
-                                <div class="tile-heading"><span>Total Items</span></div>
-                                <div class="tile-body "><span>99</span></div>
-                            </div>
-                            <div class="stats">
-                                <div class="tile-content"><div id="dashboard-sparkline-success"></div></div>
                             </div>
                         </div>
                     </div>
@@ -90,23 +79,40 @@
                         <div class="panel panel-default no-shadow" data-widget='{"draggable": "false"}'>
                             <div class="panel-body">
                                 <div class="pb-md">
-                                    <h4 class="mb-n">Last 5 Transaction<small>All Transaction.</small></h4>
+                                    <h4 class="mb-n">Last 5 New Hospital<small>All Hospital.</small></h4>
 
                                 </div>
                                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                     <tr>
-                                        <th>Transaction Date</th>
-                                        <th>Member Name</th>
-                                        <th>Wedding Date</th>
-                                        <th>Location</th>
-                                        <th>Total</th>
-                                        <th>Paid</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Telp</th>
+                                        <th>Address</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($model as $row)
+                                        <tr>
+                                            <td>{{ $row->name }}</td>
+                                            <td>{{ $row->user->email }}</td>
+                                            <td>{{ $row->telp }}</td>
+                                            <td>{{ $row->address }}</td>
+                                            <td> {{ $row->getStatus() }}</td>
+                                            <td class="center" width="130">
+                                                @if($row->status == \App\Models\Hospital::STATUS_NOT_COMPLETE || $row->status == \App\Models\Hospital::STATUS_SUSPEND)
+                                                    <a href="javascript:null" data-id="{{ $row->id }}" class="btn btn-danger btn-raised btn-xs hapus"><i class="fa fa-close"></i><div class="ripple-container"></div></a>
+                                                @endif
+
+                                                @if($row->status == \App\Models\Hospital::STATUS_ACTIVE)
+                                                    <a href="{{ route('admin.hospital.edit',$row->id) }}" class="btn btn-warning btn-raised btn-xs"><i class="fa fa-pencil"></i><div class="ripple-container"></div></a>
+                                                    <a href="{{ route('admin.hospital.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

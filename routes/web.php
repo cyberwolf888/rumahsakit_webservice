@@ -109,12 +109,7 @@ Route::group(['prefix' => 'hospital', 'middleware' => ['role:hospital'], 'as'=>'
     //report
     Route::group(['prefix' => 'report', 'as'=>'.report'], function() {
         Route::get('/', 'Hospital\ReportController@index')->name('.manage');
-        Route::get('/create', 'Hospital\ReportController@create')->name('.create');
-        Route::post('/create', 'Hospital\ReportController@store')->name('.store');
-        Route::get('/update/{id}', 'Hospital\ReportController@edit')->name('.edit');
-        Route::post('/update/{id}', 'Hospital\ReportController@update')->name('.update');
-        Route::get('/detail/{id}', 'Hospital\ReportController@show')->name('.detail');
-        Route::get('/delete/{id}', 'Hospital\ReportController@destroy')->name('.delete');
+        Route::post('/view', 'Hospital\ReportController@report')->name('.view');
     });
 
     //profile

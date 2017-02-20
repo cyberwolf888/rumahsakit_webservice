@@ -42,8 +42,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-indigo">
                             <div class="info">
-                                <div class="tile-heading"><span>Total Member</span></div>
-                                <div class="tile-body"><span>9</span></div>
+                                <div class="tile-heading"><span>Total Room</span></div>
+                                <div class="tile-body"><span>{{ $total_room }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-indigo"></div></div>
@@ -53,8 +53,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-danger">
                             <div class="info">
-                                <div class="tile-heading"><span>Total Package</span></div>
-                                <div class="tile-body "><span>99</span></div>
+                                <div class="tile-heading"><span>Total Member</span></div>
+                                <div class="tile-body "><span>{{ $total_member }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-gray"></div></div>
@@ -65,7 +65,7 @@
                         <div class="info-tile info-tile-alt tile-primary">
                             <div class="info">
                                 <div class="tile-heading"><span>Total Transaction</span></div>
-                                <div class="tile-body "><span>99</span></div>
+                                <div class="tile-body "><span>{{ $total_transaction }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-primary"></div></div>
@@ -75,8 +75,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-success clearfix">
                             <div class="info">
-                                <div class="tile-heading"><span>Total Items</span></div>
-                                <div class="tile-body "><span>99</span></div>
+                                <div class="tile-heading"><span>Total Profit</span></div>
+                                <div class="tile-body "><span>{{ $total_profit }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-success"></div></div>
@@ -96,17 +96,35 @@
                                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                     <tr>
-                                        <th>Transaction Date</th>
+                                        <th>No</th>
                                         <th>Member Name</th>
-                                        <th>Wedding Date</th>
-                                        <th>Location</th>
+                                        <th>Room Name</th>
+                                        <th>Check-in</th>
+                                        <th>Duration</th>
                                         <th>Total</th>
-                                        <th>Paid</th>
                                         <th>Status</th>
+                                        <th>Created At</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php $no = 1; ?>
+                                    @foreach($reservation as $row)
+                                        <tr>
+                                            <td>{{ $no }}</td>
+                                            <td>{{ $row->member->name }}</td>
+                                            <td>{{ $row->room->name }}</td>
+                                            <td>{{ date('d F Y',strtotime($row->checkin)) }}</td>
+                                            <td>{{ $row->duration }} day</td>
+                                            <td>Rp {{ number_format($row->total,0,',','.') }}</td>
+                                            <td>{{ $row->getStatus() }}</td>
+                                            <td>{{ date('d/m/Y',strtotime($row->created_at)) }}</td>
+                                            <td class="center" width="130">
+                                                <a href="{{ route('hospital.reservation.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a>
+                                            </td>
+                                        </tr>
+                                        <?php $no++; ?>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

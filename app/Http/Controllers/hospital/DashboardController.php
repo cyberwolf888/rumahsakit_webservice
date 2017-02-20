@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Hospital;
 
 use App\Models\Hospital;
+use App\Models\Member;
+use App\Models\Reservation;
+use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -21,7 +24,19 @@ class DashboardController extends Controller
         if($hospital->status == \App\Models\Hospital::STATUS_NOT_COMPLETE){
             return redirect()->route('hospital.finish.index');
         }
-        return view('hospital/dashboard/index');
+
+        $total_room = Room::where('rumahsakit_id',Auth::user()->hospital->id)->count();
+        $total_member = Member::count();
+        $total_transaction = Reservation::where('rumahsakit_id',Auth::user()->hospital->id)->count();
+        $total_profit = Reservation::where('rumahsakit_id',Auth::user()->hospital->id)->where('status',Reservation::STATUS_FINISH)->sum('total');
+        $reservation = Reservation::where('rumahsakit_id',Auth::user()->hospital->id)->orderBy('created_at','desc')->limit(5)->get();
+        return view('hospital/dashboard/index',[
+            'total_room'=>$total_room,
+            'total_member'=>$total_member,
+            'total_transaction'=>$total_transaction,
+            'total_profit'=>number_format($total_profit, 0, ',', '.'),
+            'reservation'=>$reservation
+        ]);
     }
 
     public function finish()
