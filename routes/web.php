@@ -97,6 +97,24 @@ Route::group(['prefix' => 'hospital', 'middleware' => ['role:hospital'], 'as'=>'
         Route::get('/delete/{id}', 'Hospital\RoomController@destroy')->name('.delete');
     });
 
+    //docter
+    Route::group(['prefix' => 'docter', 'as'=>'.docter'], function() {
+        Route::get('/', 'Hospital\DocterController@index')->name('.manage');
+        Route::get('/create', 'Hospital\DocterController@create')->name('.create');
+        Route::post('/create', 'Hospital\DocterController@store')->name('.store');
+        Route::get('/update/{id}', 'Hospital\DocterController@edit')->name('.edit');
+        Route::post('/update/{id}', 'Hospital\DocterController@update')->name('.update');
+        Route::get('/delete/{id}', 'Hospital\DocterController@destroy')->name('.delete');
+    });
+
+    //docter schedule
+    Route::group(['prefix' => 'schedule', 'as'=>'.schedule'], function() {
+        Route::get('/', 'Hospital\DocterScheduleController@index')->name('.manage');
+        Route::get('/create', 'Hospital\DocterScheduleController@create')->name('.create');
+        Route::post('/create', 'Hospital\DocterScheduleController@store')->name('.store');
+        Route::get('/delete/{id}', 'Hospital\DocterScheduleController@destroy')->name('.delete');
+    });
+
     //reservation
     Route::group(['prefix' => 'reservation', 'as'=>'.reservation'], function() {
         Route::get('/', 'Hospital\ReservationController@index')->name('.manage');
@@ -138,6 +156,9 @@ Route::group(['prefix' => 'api','as'=>'api.'], function () {
 
     Route::post('/getRoom', 'Api\HospitalController@getRoom');
     Route::post('/detailRoom', 'Api\HospitalController@detailRoom');
+
+    Route::post('/getDocter', 'Api\ScheduleController@getDocter');
+    Route::post('/getSchedule', 'Api\ScheduleController@getSchedule');
 
     Route::post('/reservation', 'Api\ReservationController@booking');
     Route::post('/getReservation', 'Api\ReservationController@getReservation');

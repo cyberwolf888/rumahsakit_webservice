@@ -113,6 +113,8 @@
                                 <li class="nav-separator"><span>Navigation</span></li>
                                 <li><a  class="withripple" href="{{ url('hospital') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
                                 <li><a  class="withripple" href="{{ route('hospital.room.manage') }}"><span class="icon"><i class="material-icons">account_balance_wallet</i></span><span>Room</span></a></li>
+                                <li><a  class="withripple" href="{{ route('hospital.docter.manage') }}"><span class="icon"><i class="material-icons">local_hospital</i></span><span>Docter</span></a></li>
+                                <li><a  class="withripple" href="{{ route('hospital.schedule.manage') }}"><span class="icon"><i class="material-icons">schedule</i></span><span>Docter Schedule</span></a></li>
                                 <li><a  class="withripple" href="{{ route('hospital.reservation.manage') }}"><span class="icon"><i class="material-icons">chrome_reader_mode</i></span><span>Reservation</span></a></li>
                                 <li><a  class="withripple" href="{{ route('hospital.report.manage') }}"><span class="icon"><i class="material-icons">assignment_turned_in</i></span><span>Report</span></a></li>
                                 <li><a  class="withripple" href="{{ route('hospital.profile.index') }}"><span class="icon"><i class="material-icons">account_circle</i></span><span>Profile</span></a></li>
