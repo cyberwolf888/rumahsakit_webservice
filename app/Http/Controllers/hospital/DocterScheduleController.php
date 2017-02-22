@@ -24,7 +24,7 @@ class DocterScheduleController extends Controller
         $docter = DB::table('dokter')
             ->select(DB::Raw('dokter.name,dokter.id as d_id,jadwal_dokter.*'))
             ->leftJoin('jadwal_dokter', 'dokter.id', '=', 'jadwal_dokter.dokter_id')
-            ->whereRaw('jadwal_dokter.hari IS NULL')
+            ->whereRaw('jadwal_dokter.hari IS NULL AND dokter.rumahsakit_id='.Auth::user()->hospital->id)
             ->pluck('name', 'd_id');
         $model = new DocterSchedule();
         return view('hospital/shcedule/form',[

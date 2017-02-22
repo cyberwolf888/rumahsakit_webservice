@@ -30,7 +30,7 @@ class HospitalController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required|max:255',
+            'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed'
         ]);
@@ -71,7 +71,7 @@ class HospitalController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama' => 'required|max:255',
+            'name' => 'required|max:255',
             'email' => 'required|email|max:255',
             'password' => 'required|min:6|confirmed'
         ]);
