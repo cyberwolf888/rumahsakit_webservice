@@ -54,7 +54,12 @@ class HospitalController extends Controller
 
     public function show($id)
     {
-        //
+        $model = Hospital::findOrFail($id);
+        $user = User::findOrFail($model->user_id);
+        return view('admin/hospital/detail',[
+            'model'=>$model,
+            'user'=>$user
+        ]);
     }
 
     public function edit($id)
