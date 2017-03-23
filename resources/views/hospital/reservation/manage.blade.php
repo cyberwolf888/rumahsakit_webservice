@@ -36,7 +36,7 @@
                                         <th>Room Name</th>
                                         <th>Check-in</th>
                                         <th>Duration</th>
-                                        <th>Total</th>
+                                        <th>Deposit</th>
                                         <th>Status</th>
                                         <th>Created At</th>
                                         <th>Action</th>

@@ -75,8 +75,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-success clearfix">
                             <div class="info">
-                                <div class="tile-heading"><span>Total Profit</span></div>
-                                <div class="tile-body "><span>{{ $total_profit }}</span></div>
+                                <div class="tile-heading"><span>Total Docter</span></div>
+                                <div class="tile-body "><span>{{ $total_docter }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-success"></div></div>
@@ -101,7 +101,7 @@
                                         <th>Room Name</th>
                                         <th>Check-in</th>
                                         <th>Duration</th>
-                                        <th>Total</th>
+                                        <th>Deposit</th>
                                         <th>Status</th>
                                         <th>Created At</th>
                                         <th>Action</th>

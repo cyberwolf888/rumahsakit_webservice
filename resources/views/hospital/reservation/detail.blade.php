@@ -111,7 +111,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <h4><small>Total Fee</small></h4>
+                                            <h4><small>Deposit</small></h4>
                                             <h4>Rp {{ number_format($model->total,0,',','.') }}</h4>
                                         </td>
                                     </tr>
