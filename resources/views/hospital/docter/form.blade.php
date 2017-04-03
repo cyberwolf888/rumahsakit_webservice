@@ -49,7 +49,23 @@
                                 </div>
                                 <div class="form-group is-empty">
                                     <label for="total_room" class="control-label">Speciality</label>
-                                    {!! Form::text('jenis', $model->jenis, ['id'=>'jenis','placeholder'=>'Speciality','class'=>'form-control', 'required']) !!}
+                                    {!! Form::select('jenis', [
+                                                                'Kardiolog' => 'Kardiolog',
+                                                                'Audiolog' => 'Audiolog',
+                                                                'Gigi' => 'Gigi',
+                                                                'THT' => 'THT',
+                                                                'Ginekolog' => 'Ginekolog',
+                                                                'Ortopedi' => 'Ortopedi',
+                                                                'Psikiater' => 'Psikiater',
+                                                                'Radiolog' => 'Radiolog',
+                                                                'Endokrinologi' => 'Endokrinologi',
+                                                                'Saraf' => 'Saraf',
+                                                                'Dokter paru-paru' => 'Dokter paru-paru',
+                                                                'Dokter bedah jantung' => 'Dokter bedah jantung',
+                                                                'Dokter anak' => 'Dokter anak',
+                                                            ],
+                                                    $model->jenis,
+                                                    ['id'=>'jenis','class'=>'form-control', 'required']) !!}
                                     <span class="material-input"></span>
                                 </div>
                             </div>

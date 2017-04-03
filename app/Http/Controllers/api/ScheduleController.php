@@ -11,7 +11,7 @@ class ScheduleController extends Controller
 {
     public function getDocter(Request $request)
     {
-        $docter = Docter::where('rumahsakit_id',$request->rumahsakit_id)->get();
+        $docter = Docter::where('rumahsakit_id',$request->rumahsakit_id)->orderBy('jenis','ASC')->get();
         if($docter->count()>0){
             return response()->json(['status'=>1,'data'=>$docter]);
         }else{
