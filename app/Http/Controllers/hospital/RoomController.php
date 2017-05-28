@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Hospital;
 
+use App\Models\Reservation;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -127,6 +128,8 @@ class RoomController extends Controller
             unlink($path.'thumb_'.$model->image);
         }
         $model->delete();
+
+        Reservation::where('room_id',$id)->delete();
 
         return redirect()->route('hospital.room.manage');
     }

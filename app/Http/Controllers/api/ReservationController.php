@@ -27,6 +27,9 @@ class ReservationController extends Controller
         $reservation->status = Reservation::STATUS_NEW;
         $reservation->save();
 
+        $room->total_room = $room->total_room-1;
+        $room->save();
+
         return response()->json(['status'=>1]);
 
     }

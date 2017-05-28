@@ -31,6 +31,10 @@ class ReservationController extends Controller
         $model->status = Reservation::STATUS_CANCELED;
         $model->save();
 
+        $room = Room::findOrFail($model->room_id);
+        $room->total_room = $room->total_room+1;
+        $room->save();
+
         return redirect()->back();
     }
 
@@ -48,6 +52,10 @@ class ReservationController extends Controller
         $model = Reservation::findOrFail($id);
         $model->status = Reservation::STATUS_FINISH;
         $model->save();
+
+        $room = Room::findOrFail($model->room_id);
+        $room->total_room = $room->total_room+1;
+        $room->save();
 
         return redirect()->back();
     }
